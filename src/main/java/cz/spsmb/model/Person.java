@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "test-person-table")
+@Table(name = "Person")
 public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    long person_id;
     String name;
     int age;
 
@@ -22,11 +22,11 @@ public class Person implements Serializable {
     }
 
     public long getId() {
-        return id;
+        return person_id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.person_id = id;
     }
 
     public String getName() {
@@ -45,10 +45,11 @@ public class Person implements Serializable {
         this.age = age;
     }
 
+
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
+                "id=" + person_id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';

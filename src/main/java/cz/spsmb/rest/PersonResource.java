@@ -27,7 +27,6 @@ public class PersonResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     @Path("{id}")
     public Response getById(@PathParam("id") Long id) {
         Person person = personRepository.findById(id);
@@ -49,14 +48,10 @@ public class PersonResource {
     @Transactional
     public Response save(Person person) {
         person.setId(0l);
-        if (person.getName() != null && person.getAge() > 0) {
+        if (person.getName() != null || person.getAge() > 0) {
             personRepository.persist(person);
             return Response.ok().entity("ok").build();
-        } else {
-            return Response.status(400).entity("Person must have attributes \"name\" and \"age\".").build();
         }
-
+            return Response.status(400).entity("Person must have attributes \"name\" and \"age\".").build();
     }
-
-
 }
