@@ -1,5 +1,6 @@
 package cz.spsmb.model;
 
+import jakarta.inject.Inject;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -14,9 +15,11 @@ public class Person implements Serializable {
     String name;
     int age;
 
-    public Person(){};
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "id",referencedColumnName = "car_id")
+    Car car;
 
-    public Person(String name, Integer age){
+    public Person(){
         this.name = name;
         this.age = age;
     }
@@ -45,6 +48,13 @@ public class Person implements Serializable {
         this.age = age;
     }
 
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
 
     @Override
     public String toString() {

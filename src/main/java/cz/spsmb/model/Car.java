@@ -15,6 +15,10 @@ public class Car implements Serializable {
     String model;
     String brand;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id",referencedColumnName = "person_id")
+    Person person;
+
     public long getId() {
         return id;
     }
@@ -47,9 +51,6 @@ public class Car implements Serializable {
         this.person = person;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id",referencedColumnName = "person_id")
-    Person person;
 
     @Override
     public String toString() {

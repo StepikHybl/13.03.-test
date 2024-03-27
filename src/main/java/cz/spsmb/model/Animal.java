@@ -14,6 +14,9 @@ public class Animal implements Serializable {
     String name;
     String kind;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id",referencedColumnName = "person_id")
+    Person person;
 
     public long getId() {
         return id;
@@ -47,9 +50,6 @@ public class Animal implements Serializable {
         this.person = person;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id",referencedColumnName = "person_id")
-    Person person;
 
     @Override
     public String toString() {

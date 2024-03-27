@@ -1,9 +1,13 @@
 package cz.spsmb.dto;
 
+import cz.spsmb.model.Car;
+
 public class PersonDTO {
     long person_id;
     String name;
     int age;
+
+    String carName;
 
     public long getPerson_id() {
         return person_id;
@@ -27,6 +31,14 @@ public class PersonDTO {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public void setCarName(String carName) {
+        this.carName = carName;
     }
 
     @Override

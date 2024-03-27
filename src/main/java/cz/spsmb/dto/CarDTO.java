@@ -1,9 +1,13 @@
 package cz.spsmb.dto;
 
+import cz.spsmb.model.Car;
+
 public class CarDTO {
     long id;
     String model;
     String brand;
+
+    Car car;
 
     public long getId() {
         return id;
@@ -27,6 +31,14 @@ public class CarDTO {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     @Override
